@@ -1,18 +1,23 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, BeforeInsert, BaseEntity } from "typeorm";
+import * as uuidv4 from "uuid/v4";
 
-@Entity()
-export class User {
+@Entity("users")
+export class User extends BaseEntity {
+  // id defined as universally unique identifier (UUID) 128-bit number
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @Column("varchar", {length: 255})
+  email: string;
 
-    @Column()
-    firstName: string;
+  @Column("varchar", {length: 255})
+  lastName: string;
 
-    @Column()
-    lastName: string;
+  @Column("text")
+  password: string;
 
-    @Column()
-    age: number;
-
+  @BeforeInsert()
+  addId() {
+    this.id = uuidv4();
+  }
 }
