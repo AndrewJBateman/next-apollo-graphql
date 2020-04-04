@@ -1,6 +1,6 @@
-# redis graphql-server
+# redis-graphql-server
 
-* Graphql server using redis & postgreSQL database. Tutorial code (see 'Inspiration' below)
+* Graphql server using Typescript, Node.js, PostgreSQL, Redis, React, Jest, OAuth, TypeORM, and SparkPost. This is complex tutorial code (almost 8 hours) from Ben Awad (see 'Inspiration' below) and was an opportunity to see a very competent coder in action. This is a work in progress and I need to correct bugs likely due to the latest versions of dependencies being used. Hence no screen shots as yet.
 
 *** Note: to open web links in a new window use: _ctrl+click on link_**
 
@@ -37,36 +37,52 @@
 * [graphql-request v1.8.2](https://www.npmjs.com/package/graphql-request) GraphQL client
 * [Schema Stitching](https://www.apollographql.com/docs/graphql-tools/schema-stitching/) deprecated
 * [Yup v0..28.3](https://www.npmjs.com/package/yup) JavaScript schema builder for value parsing and validation
+* [ioredis](https://www.npmjs.com/package/ioredis) Redis client for Node.js. Redis is an in-memory data structure with an in-memory key-value database with optional durability
 * [Express.js middleware v4.17.1](https://expressjs.com/)
+* [Express rate-limit v5.1.1](https://www.npmjs.com/package/express-rate-limit) rate-limiting middleware for Express, to limit repeated requests to public APIs and/or endpoints such as password reset
 * [Node.js v12.4.0](https://nodejs.org/es/)
-* [Nodemon](https://www.npmjs.com/package/nodemon) npm module so server will automatically restart after code changes
 
 ## Setup
 
 * Install [PostgreSQL](https://www.postgresql.org/) & run it (requires the password you created during installation)
-* Install [Nodemon v2.0.2](https://www.npmjs.com/package/nodemon) globally if you don't already have it
 * Run `npm i` command, setup database settings inside `ormconfig.json` file
-* Run `npm start` command - app will restart after each code update due to nodemon
+* Run `npm run start` command
 
-## Code Examples - Backend
+## Code Examples
 
-* todo
+* extract from startServer.ts to create session with a cookie that lasts 7 days
 
-```javascript
-
+```typescript
+server.express.use(
+    session({
+      store: new RedisStore({
+        client: redis as any,
+        prefix: redisSessionPrefix
+      }),
+      name: "qid",
+      secret: SESSION_SECRET,
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
+      }
+    } as any)
+  );
 ```
 
 ## Features
 
-* [Try-catch](https://expressjs.com/en/advanced/best-practice-performance.html) used to catch exceptions in synchronous code, e.g. JSON parsing errors.
+* For each module there is a separate `errorMessages.ts` file that is imported in `resolvers.ts` file
 
 ## Status & To-Do List
 
-* Status: in progress
+* Status: bugs prevent testing from starting. Error `Argument of type '{ store: any; windowMs: number; max: number; delayMs: number; }' is not assignable to parameter of type 'Options'. Object literal may only specify known properties, and 'delayMs' does not exist in type 'Options'.` to fix in main `startServer.ts` file.
 
 ## Inspiration/General Tools
 
-* [freeCodeCamp.org: Youtube video, GraphQL Server Intermediate Tutorial - Boilerplate with Typescript, PostgreSQL, and Redis](https://www.youtube.com/watch?v=-iwjiiCGiO0)
+* [freeCodeCamp.org: Youtube video by Ben Awad, GraphQL Server Intermediate Tutorial - Boilerplate with Typescript, PostgreSQL, and Redis](https://www.youtube.com/watch?v=-iwjiiCGiO0)
 * [PostgreSQL Quick Command List](http://jcsites.juniata.edu/faculty/rhodes/dbms/pgsql.htm)
 * [Guru99: PostgreSQL CREATE DATABASE with Example](https://www.guru99.com/postgresql-create-database.html)
 
