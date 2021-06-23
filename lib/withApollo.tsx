@@ -24,7 +24,9 @@ const withApollo = nextWithApollo(
     });
   },
   {
+    // eslint-disable-next-line react/display-name
     render: ({ Page, props }) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       const router = useRouter();
       return (
         <ApolloProvider client={props.apollo}>
@@ -33,6 +35,7 @@ const withApollo = nextWithApollo(
       );
     },
   }
+
 );
 
 export default withApollo;
