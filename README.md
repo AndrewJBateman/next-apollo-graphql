@@ -1,34 +1,98 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# :zap: Next Apollo GraphQL
 
-## Getting Started
+* A Next.js React app using Apollo GraphQL to get data from an API.
+* **Note:** to open web links in a new window use: _ctrl+click on link_
 
-First, run the development server:
+![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/next-apollo-graphql?style=plastic)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AndrewJBateman/next-apollo-graphql?style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/AndrewJBateman/next-apollo-graphql?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/AndrewJBateman/next-apollo-graphql?style=plastic)
 
-```bash
-npm run dev
-# or
-yarn dev
+## :page_facing_up: Table of contents
+
+* [:zap: Next API Data](#zap-next-api-data)
+  * [:page_facing_up: Table of contents](#page_facing_up-table-of-contents)
+  * [:books: General Info](#books-general-info)
+  * [:camera: Screenshots](#camera-screenshots)
+  * [:signal_strength: Technologies](#signal_strength-technologies)
+  * [:floppy_disk: Setup](#floppy_disk-setup)
+  * [:computer: Code Examples](#computer-code-examples)
+  * [:clipboard: Status & To-Do List](#clipboard-status--to-do-list)
+  * [:clap: Inspiration](#clap-inspiration)
+  * [:file_folder: License](#file_folder-license)
+  * [:envelope: Contact](#envelope-contact)
+
+## :books: General Info
+
+* Displays data from the Rick & Morty API.
+* Next.js is for server-rendered react apps. It has automatic code splitting, simple page-based routing, built-in CSS support and hot reloading. Every component file in the pages folder is treated as a page.
+
+## :camera: Screenshots
+
+![Example screenshot](./imgs/list.png).
+
+## :signal_strength: Technologies
+
+* [Node.js v14](https://nodejs.org/) javascript runtime using the [Chrome V8 engine](https://v8.dev/).
+* [React v17](https://reactjs.org/) Javascript library.
+* [GraphQL v15](https://github.com/graphql/graphql-js)
+* [Apollo v2](https://www.apollographql.com/) GraphQL implementation data graph layer
+* [Next v10](https://nextjs.org/) minimalist framework for rendering react apps on the server.
+* [Next with Apollo v5](https://www.npmjs.com/package/next-with-apollo) to save coding time
+* [Apollo Client v2](https://www.npmjs.com/package/apollo-client) caching GraphQL client to UI components can fetch data via GraphQL. More documentation [here](https://apollographql.com/docs/react/).
+
+## :floppy_disk: Setup
+
+* `npm run dev` runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* `npm run build` builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
+
+## :computer: Code Examples
+
+* `withApollo` function to return instance of Apollo client
+
+```tsx
+const withApollo = nextWithApollo(
+
+  ({ initialState, headers }) => {
+    return new ApolloClient({
+      ssrMode: typeof window === "undefined",
+      link: new HttpLink({
+        uri: "https://rickandmortyapi.com/graphql",
+      }),
+      headers: {
+        ...(headers as Record<string, string>),
+      },
+      cache: new InMemoryCache().restore(initialState || {}),
+    });
+  },
+  {
+    // eslint-disable-next-line react/display-name
+    render: ({ Page, props }) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const router = useRouter();
+      return (
+        <ApolloProvider client={props.apollo}>
+          <Page {...props} {...router} />
+        </ApolloProvider>
+      );
+    },
+  }
+);
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## :clipboard: Status & To-Do List
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+* Status: Working
+* To-Do: Replace with different API. Add styles
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.tsx`.
+## :clap: Inspiration
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+* [TomDoesTech: Apollo Client (3) in Next.js (10) with TypeScript & GraphQL Code Generator](https://www.youtube.com/watch?v=4yDrtFUbUzo&t=415s)
 
-## Learn More
+## :file_folder: License
 
-To learn more about Next.js, take a look at the following resources:
+* N/A
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## :envelope: Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com
