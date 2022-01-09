@@ -24,8 +24,10 @@
 
 ## :books: General Info
 
-* Displays data from the Rick & Morty API.
+* Displays data from the [Rick & Morty GraphQL API](https://rickandmortyapi.com/graphql). No API key required
 * Next.js is for server-rendered react apps. It has automatic code splitting, simple page-based routing, built-in CSS support and hot reloading. Every component file in the pages folder is treated as a page.
+* Apollo Client used to fetch data using GraphQL.
+* GraphQL only return the data requested. Data only served from a single end-point. Lots of companies use it. GraphQL makes tawsks more complex and there are possible performance issues that would not occur using REST with a web cache. 
 
 ## :camera: Screenshots
 
@@ -35,11 +37,11 @@
 
 * [Node.js v14](https://nodejs.org/) javascript runtime using the [Chrome V8 engine](https://v8.dev/).
 * [React v17](https://reactjs.org/) Javascript library.
-* [GraphQL v15](https://github.com/graphql/graphql-js)
-* [Apollo v2](https://www.apollographql.com/) GraphQL implementation data graph layer
-* [Next v10](https://nextjs.org/) minimalist framework for rendering react apps on the server.
+* [GraphQL v16](https://github.com/graphql/graphql-js)
+* [Apollo v3](https://www.apollographql.com/) GraphQL implementation data graph layer
+* [Next v12](https://nextjs.org/) minimalist framework for rendering react apps on the server.
 * [Next with Apollo v5](https://www.npmjs.com/package/next-with-apollo) to save coding time
-* [Apollo Client v2](https://www.npmjs.com/package/apollo-client) caching GraphQL client to UI components can fetch data via GraphQL. More documentation [here](https://apollographql.com/docs/react/).
+* [Apollo Client v3](https://www.npmjs.com/package/apollo-client) caching GraphQL client to UI components can fetch data via GraphQL. More documentation [here](https://apollographql.com/docs/react/).
 
 ## :floppy_disk: Setup
 
