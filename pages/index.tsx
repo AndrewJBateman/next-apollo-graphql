@@ -12,11 +12,12 @@ function Home() {
     data,
     "characters.results",
     []
-  ) as CharactersQuery["characters"]["results"];
+  ) 
+  // as CharactersQuery["characters"]["results"];
 
   return (
     <div>
-      {characters.map((character) => (
+      {characters.map((character: any) => (
         <div key={character.id}>
           <Image
             src={character.image}
