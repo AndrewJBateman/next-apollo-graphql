@@ -10,7 +10,7 @@
 
 ## :page_facing_up: Table of contents
 
-* [:zap: Next API Data](#zap-next-api-data)
+* [:zap: Next Apollo GraphQL](#zap-next-apollo-graphql)
   * [:page_facing_up: Table of contents](#page_facing_up-table-of-contents)
   * [:books: General Info](#books-general-info)
   * [:camera: Screenshots](#camera-screenshots)
@@ -27,7 +27,7 @@
 * Displays data from the [Rick & Morty GraphQL API](https://rickandmortyapi.com/graphql). No API key required
 * Next.js is for server-rendered react apps. It has automatic code splitting, simple page-based routing, built-in CSS support and hot reloading. Every component file in the pages folder is treated as a page.
 * Apollo Client used to fetch data using GraphQL.
-* GraphQL only return the data requested. Data only served from a single end-point. Lots of companies use it. GraphQL makes tawsks more complex and there are possible performance issues that would not occur using REST with a web cache. 
+* GraphQL only return the data requested. Data only served from a single end-point. Lots of companies use it. GraphQL makes tawsks more complex and there are possible performance issues that would not occur using REST with a web cache.
 
 ## :camera: Screenshots
 
