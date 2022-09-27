@@ -1,20 +1,21 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import { Fruit, Fruits } from "../generated";
 
-const List: any = ({characters}) => {
+const List: any = ({fruits}: any) => {
   return (
     <>
-      {characters.map((character: any) => (
-        <div key={character.id}>
-          <Image
-            src={character.image}
-            alt={character.name}
+      {fruits.map((fruit: Fruit) => (
+        <div key={fruit.id}>
+          {/* <Image
+            src={fruit.}
+            alt={fruit.name}
             width="200px"
             height="200px"
-          />
-          <Link href="/characters/[id]" as={`/characters/${character.id}`}>
-            {character.name}
+          /> */}
+          <Link href="/fruits/[id]" as={`/fruits/${fruit.id}`}>
+            {fruit.fruit_name}
           </Link>
         </div>
       ))}

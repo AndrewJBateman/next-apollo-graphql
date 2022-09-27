@@ -15,7 +15,7 @@ const withApollo = nextWithApollo(
     return new ApolloClient({
       ssrMode: typeof window === "undefined",
       link: new HttpLink({
-        uri: "https://rickandmortyapi.com/graphql",
+        uri: "https://fruits-api.netlify.app/graphql",
       }),
       headers: {
         ...(headers as Record<string, string>),
