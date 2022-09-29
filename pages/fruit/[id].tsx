@@ -1,12 +1,12 @@
 import { get } from "lodash";
 import { getDataFromTree } from "@apollo/client/react/ssr";
 import withApollo from "../../lib/withApollo";
-import { useCharacterQuery } from "../../generated";
+import { useGet_FruitQuery } from "../../generated";
 
-function SingleCharacterPage({ query }: any): any {
+function SingleFruitPage({ query }: any): any {
   const id = get(query, "id");
 
-  const { data } = useCharacterQuery({
+  const { data } = useGet_FruitQuery({
     variables: {
       id,
     },
@@ -15,4 +15,4 @@ function SingleCharacterPage({ query }: any): any {
   return <div>{JSON.stringify(data)}</div>;
 }
 
-export default withApollo(SingleCharacterPage, { getDataFromTree });
+export default withApollo(SingleFruitPage, { getDataFromTree });

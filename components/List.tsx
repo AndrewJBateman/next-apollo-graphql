@@ -24,7 +24,7 @@ const List: any = ({ fruits }: any) => {
               </span>
             </h2>
             <p className="mt-2 text-gray-600">
-              {fruit.description?.substring(0, 60)}
+              {fruit.description?.substring(0, 60)}...
             </p>
           </div>
           <div className="flex justify-end">

@@ -125,14 +125,21 @@ export type Countries = {
   country?: Maybe<Scalars['String']>;
 };
 
-export type AllFruitsQueryVariables = Exact<{ [key: string]: never; }>;
+export type Get_FruitsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllFruitsQuery = { __typename?: 'Query', fruits?: Array<{ __typename?: 'Fruits', id?: string | null, scientific_name?: string | null, fruit_name?: string | null, description?: string | null } | null> | null };
+export type Get_FruitsQuery = { __typename?: 'Query', fruits?: Array<{ __typename?: 'Fruits', id?: string | null, scientific_name?: string | null, fruit_name?: string | null, description?: string | null } | null> | null };
+
+export type Get_FruitQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
 
 
-export const AllFruitsDocument = gql`
-    query allFruits {
+export type Get_FruitQuery = { __typename?: 'Query', fruit?: { __typename?: 'Fruit', id?: string | null, scientific_name?: string | null, tree_name?: string | null, fruit_name?: string | null, family?: string | null } | null };
+
+
+export const Get_FruitsDocument = gql`
+    query GET_FRUITS {
   fruits {
     id
     scientific_name
@@ -143,28 +150,67 @@ export const AllFruitsDocument = gql`
     `;
 
 /**
- * __useAllFruitsQuery__
+ * __useGet_FruitsQuery__
  *
- * To run a query within a React component, call `useAllFruitsQuery` and pass it any options that fit your needs.
- * When your component renders, `useAllFruitsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGet_FruitsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGet_FruitsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useAllFruitsQuery({
+ * const { data, loading, error } = useGet_FruitsQuery({
  *   variables: {
  *   },
  * });
  */
-export function useAllFruitsQuery(baseOptions?: Apollo.QueryHookOptions<AllFruitsQuery, AllFruitsQueryVariables>) {
+export function useGet_FruitsQuery(baseOptions?: Apollo.QueryHookOptions<Get_FruitsQuery, Get_FruitsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AllFruitsQuery, AllFruitsQueryVariables>(AllFruitsDocument, options);
+        return Apollo.useQuery<Get_FruitsQuery, Get_FruitsQueryVariables>(Get_FruitsDocument, options);
       }
-export function useAllFruitsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllFruitsQuery, AllFruitsQueryVariables>) {
+export function useGet_FruitsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Get_FruitsQuery, Get_FruitsQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AllFruitsQuery, AllFruitsQueryVariables>(AllFruitsDocument, options);
+          return Apollo.useLazyQuery<Get_FruitsQuery, Get_FruitsQueryVariables>(Get_FruitsDocument, options);
         }
-export type AllFruitsQueryHookResult = ReturnType<typeof useAllFruitsQuery>;
-export type AllFruitsLazyQueryHookResult = ReturnType<typeof useAllFruitsLazyQuery>;
-export type AllFruitsQueryResult = Apollo.QueryResult<AllFruitsQuery, AllFruitsQueryVariables>;
+export type Get_FruitsQueryHookResult = ReturnType<typeof useGet_FruitsQuery>;
+export type Get_FruitsLazyQueryHookResult = ReturnType<typeof useGet_FruitsLazyQuery>;
+export type Get_FruitsQueryResult = Apollo.QueryResult<Get_FruitsQuery, Get_FruitsQueryVariables>;
+export const Get_FruitDocument = gql`
+    query GET_FRUIT($id: ID!) {
+  fruit(id: $id) {
+    id
+    scientific_name
+    tree_name
+    fruit_name
+    family
+  }
+}
+    `;
+
+/**
+ * __useGet_FruitQuery__
+ *
+ * To run a query within a React component, call `useGet_FruitQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGet_FruitQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGet_FruitQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGet_FruitQuery(baseOptions: Apollo.QueryHookOptions<Get_FruitQuery, Get_FruitQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Get_FruitQuery, Get_FruitQueryVariables>(Get_FruitDocument, options);
+      }
+export function useGet_FruitLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Get_FruitQuery, Get_FruitQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Get_FruitQuery, Get_FruitQueryVariables>(Get_FruitDocument, options);
+        }
+export type Get_FruitQueryHookResult = ReturnType<typeof useGet_FruitQuery>;
+export type Get_FruitLazyQueryHookResult = ReturnType<typeof useGet_FruitLazyQuery>;
+export type Get_FruitQueryResult = Apollo.QueryResult<Get_FruitQuery, Get_FruitQueryVariables>;
