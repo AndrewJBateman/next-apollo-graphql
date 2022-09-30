@@ -19,6 +19,15 @@ export const GET_FRUIT = gql`
       tree_name
       fruit_name
       family
+      origin
+      description
+      bloom
+      maturation_fruit
+      life_cycle
+      climatic_zone
+      producing_countries {
+        country
+      }
     }
   }
 `;

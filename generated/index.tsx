@@ -135,7 +135,7 @@ export type Get_FruitQueryVariables = Exact<{
 }>;
 
 
-export type Get_FruitQuery = { __typename?: 'Query', fruit?: { __typename?: 'Fruit', id?: string | null, scientific_name?: string | null, tree_name?: string | null, fruit_name?: string | null, family?: string | null } | null };
+export type Get_FruitQuery = { __typename?: 'Query', fruit?: { __typename?: 'Fruit', id?: string | null, scientific_name?: string | null, tree_name?: string | null, fruit_name?: string | null, family?: string | null, origin?: string | null, description?: string | null, bloom?: string | null, maturation_fruit?: string | null, life_cycle?: string | null, climatic_zone?: string | null, producing_countries?: Array<{ __typename?: 'countries', country?: string | null } | null> | null } | null };
 
 
 export const Get_FruitsDocument = gql`
@@ -183,6 +183,15 @@ export const Get_FruitDocument = gql`
     tree_name
     fruit_name
     family
+    origin
+    description
+    bloom
+    maturation_fruit
+    life_cycle
+    climatic_zone
+    producing_countries {
+      country
+    }
   }
 }
     `;
