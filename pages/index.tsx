@@ -8,7 +8,6 @@ import List from "../components/List";
 const Home = () => {
   const { data } = useGet_FruitsQuery();
   const fruits = get(data, "fruits", []);
-  console.log("data: ", fruits);
   return <List fruits={fruits} />;
 };
 
