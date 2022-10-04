@@ -14,7 +14,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["picsum.photos", "fruits-api.netlify.app"],
+    domains: ["picsum.photos", "image.unsplash.com", "fruits-api.netlify.app"],
   },
   
   basePath: process.env.NEXT_PUBLIC_BASE_PATH,

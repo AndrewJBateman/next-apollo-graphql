@@ -1,6 +1,7 @@
 import React from "react";
 import { Fruit } from "../generated";
 import Head from "next/head";
+import Image from "next/image";
 
 const Detail: any = ({ fruit }: any) => {
   return (
@@ -8,14 +9,18 @@ const Detail: any = ({ fruit }: any) => {
       <Head>
         <title>Detalles de la Fruta</title>
       </Head>
-      <h1 className="pt-8 pb-4 mx-auto text-2xl font-semibold text-center text-gray-800">
-        Detalles de la Fruta
-      </h1>
       <div
         className="max-w-md p-4 mx-auto my-4 bg-white rounded-lg shadow-lg"
         key={fruit.id}
       >
         <div>
+          <Image
+            layout="fixed"
+            width={400}
+            height={300}
+            src="https://picsum.photos/400/300"
+            alt="random photo"
+          />
           <h2 className="text-2xl font-semibold text-gray-800">
             {fruit.fruit_name}
             <span className="ml-2 text-l font-medium text-indigo-700">
