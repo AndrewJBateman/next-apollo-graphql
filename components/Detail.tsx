@@ -27,7 +27,7 @@ const Detail: any = ({ fruit }: any) => {
           </h2>
           <p className="text-gray-600">
             <span className="mt-2 mr-1 text-l font-medium text-indigo-700">
-              Nombre Latino:{" "}
+              Nombre Cientifico:{" "}
             </span>
             {fruit.scientific_name}
           </p>

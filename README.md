@@ -11,23 +11,28 @@
 ## :page_facing_up: Table of contents
 
 * [:zap: Next Apollo GraphQL](#zap-next-apollo-graphql)
-  * [:page_facing_up: Table of contents](#page_facing_up-table-of-contents)
+  * [:page\_facing\_up: Table of contents](#page_facing_up-table-of-contents)
   * [:books: General Info](#books-general-info)
   * [:camera: Screenshots](#camera-screenshots)
-  * [:signal_strength: Technologies](#signal_strength-technologies)
-  * [:floppy_disk: Setup](#floppy_disk-setup)
+  * [:signal\_strength: Technologies](#signal_strength-technologies)
+  * [:floppy\_disk: Setup](#floppy_disk-setup)
   * [:computer: Code Examples](#computer-code-examples)
-  * [:clipboard: Status & To-Do List](#clipboard-status--to-do-list)
+  * [:clipboard: Status \& To-Do List](#clipboard-status--to-do-list)
   * [:clap: Inspiration](#clap-inspiration)
-  * [:file_folder: License](#file_folder-license)
+  * [:file\_folder: License](#file_folder-license)
   * [:envelope: Contact](#envelope-contact)
 
 ## :books: General Info
 
-* Displays data from the [Rick & Morty GraphQL API](https://rickandmortyapi.com/graphql). No API key required
+* Displays data from a [Netlify fruits API](https://fruits-api.netlify.app/graphql). No API key required
 * Next.js is for server-rendered react apps. It has automatic code splitting, simple page-based routing, built-in CSS support and hot reloading. Every component file in the pages folder is treated as a page.
 * Apollo Client used to fetch data using GraphQL.
-* GraphQL only return the data requested. Data only served from a single end-point. Lots of companies use it. GraphQL makes tawsks more complex and there are possible performance issues that would not occur using REST with a web cache.
+* GraphQL only return the data requested. Data only served from a single end-point. Lots of companies use it. GraphQL makes tasks more complex and there are possible performance issues that would not occur using REST with a web cache.
+* Tailwind CSS added to Next.js
+* Picsum API random photo is displayed
+* Latest Next/Image optimisation used so image downloaded as Webp format and automatically sized. This is a major advantage over non-optimised Images.
+* Converted to Progressive Web App (PWA).
+* Custom Document file ./pages/_document.js created to override and extend default Document. It injects meta tags into every page
 
 ## :camera: Screenshots
 
@@ -35,16 +40,18 @@
 
 ## :signal_strength: Technologies
 
-* [Node.js v14](https://nodejs.org/) javascript runtime using the [Chrome V8 engine](https://v8.dev/).
-* [React v17](https://reactjs.org/) Javascript library.
+* [Node.js v18](https://nodejs.org/) javascript runtime using the [Chrome V8 engine](https://v8.dev/).
+* [React v18](https://reactjs.org/) Javascript library.
 * [GraphQL v16](https://github.com/graphql/graphql-js)
 * [Apollo v3](https://www.apollographql.com/) GraphQL implementation data graph layer
-* [Next v12](https://nextjs.org/) minimalist framework for rendering react apps on the server.
+* [Next v13](https://nextjs.org/) minimalist framework for rendering react apps on the server. Only v12.2.2 works, higher version causes errors.
 * [Next with Apollo v5](https://www.npmjs.com/package/next-with-apollo) to save coding time
 * [Apollo Client v3](https://www.npmjs.com/package/apollo-client) caching GraphQL client to UI components can fetch data via GraphQL. More documentation [here](https://apollographql.com/docs/react/).
+* [Picsum API image](https://picsum.photos/images). No API key required, image size can be specified in url
 
 ## :floppy_disk: Setup
 
+* `npm run codegen` to run codegen to generate output to `generated/index.tsx`
 * `npm run dev` runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 * `npm run build` builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
 
@@ -85,11 +92,12 @@ const withApollo = nextWithApollo(
 ## :clipboard: Status & To-Do List
 
 * Status: Working
-* To-Do: Replace with different API. Add styles
+* To-Do: Update sitemap, robots files. Add styles
 
 ## :clap: Inspiration
 
 * [TomDoesTech: Apollo Client (3) in Next.js (10) with TypeScript & GraphQL Code Generator](https://www.youtube.com/watch?v=4yDrtFUbUzo&t=415s)
+* [How to Loop in React JSX](https://stackabuse.com/how-to-loop-in-react-jsx/)
 
 ## :file_folder: License
 
