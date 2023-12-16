@@ -24,7 +24,7 @@
 
 ## :books: General Info
 
-* Displays data from a [Netlify fruits API](https://fruits-api.netlify.app/graphql). No API key required
+* Previously displayed data from the [Netlify fruits API](https://fruits-api.netlify.app/graphql) but this is no longer live. [The API](https://github.com/Franqsanz/fruits-api/blob/main/readme.md) is now down.
 * Next.js is for server-rendered react apps. It has automatic code splitting, simple page-based routing, built-in CSS support and hot reloading. Every component file in the pages folder is treated as a page.
 * Apollo Client used to fetch data using GraphQL.
 * GraphQL only return the data requested. Data only served from a single end-point. Lots of companies use it. GraphQL makes tasks more complex and there are possible performance issues that would not occur using REST with a web cache.
